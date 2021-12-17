@@ -1,0 +1,220 @@
+from os import system
+
+data_bansos = {}
+
+def tampil_data():
+    system("cls")
+    if len(data_bansos) != 0:
+        print("Daftar Data:")
+        for key, value in data_bansos.items():
+            print("\nNIK : ", key)
+            for key_2 in value:
+                print(key_2, ": ", value[key_2])
+    else:
+        print("Data Masih Kosong!")
+            
+
+def tambah_data():
+    system("cls")
+    print("\nSilahkan Isi Data Dengan Benar\n")
+    nama = input("Masukan Nama: ")
+    nik = input("Masukan NIK: ")
+    alamat = input("Masukan Alamat: ")
+    pekerjaan = input("Masukan Pekerjaan: ")
+    gaji = input("Masukan Gaji: ")
+    anggota = input("Masukan Jumlah Anggota Keluarga: ")
+    action = input("Apakah yakin ingin menyimpan data tersebut? (y/n): ")
+    if action == "y":
+        data_bansos[nik] = {
+            "Nama Lengkap": nama,
+            "Alamat": alamat,
+            "Pekerjaan": pekerjaan,
+            "Gaji": gaji,
+            "Anggota Keluarga": anggota,
+            }
+        print("\nData berhasil disimpan!")
+    
+    else: 
+        print("\nData batal disimpan!")
+
+def hapus_data():
+    system("cls")
+    print("\nHapus Data Berdasarkan NIK\n")
+    nik = input("Masukan NIK: ")
+    if nik in data_bansos:
+        action = input("\nApakah yakin ingin menghapus data tersebut? (y/n): ")
+        if action == "y":
+            del data_bansos[nik]
+            print("\nData berhasil dihapus!")
+        else:
+            print("\nData gagal dihapus!")
+    else:
+        print("\nData tidak ada!!!")
+        
+def searching(nik):
+    if nik in data_bansos:
+        return True
+    else:
+        return False
+
+def cari_data():
+    print ("Mencari Data Penerima")
+    nik = input("Masukkan NIK yang ingin dicari : ")
+    exists = searching(nik)
+    if exists:
+        print("Data Ditemukan")
+        print (data_bansos=nik)
+    else:
+        print("Data Tidak Ada")
+        input("Tekan ENTER untuk kembali ke MENU")
+        
+def update_data_nama(data):
+    print(f"Nama yang lama : {data}")
+    new_name = input("Masukan Nama baru : ")
+    action = input("\nApakah yakin ingin mengganti data tersebut? (y/n): ")
+    if action == "y":
+        data_bansos[new_name] = data_bansos[data]
+        del data_bansos[data]
+        print("Data Telah di simpan")
+        print_data(new_name)
+    else:
+        print("Data Batal diubah")
+
+def update_data_nik(data):
+    print(f"NIK yang lama : {data}")
+    new_nik = input("Masukan NIK baru : ")
+    action = input("\nApakah yakin ingin mengganti data tersebut? (y/n): ")
+    if action == "y":
+        data_bansos[new_nik] = data_bansos[data]
+        del data_bansos[data]
+        print("Data Telah di simpan")
+        print_data(new_nik)
+    else:
+        print("Data Batal diubah")
+        
+def update_data_alamat(data):
+    print(f"alamat yang lama : {data}")
+    new_alamat = input("Masukan alamat baru : ")
+    action = input("\nApakah yakin ingin mengganti data tersebut? (y/n): ")
+    if action == "y":
+        data_bansos[new_alamat] = data_bansos[data]
+        del data_bansos[data]
+        print("Data Telah di simpan")
+        print_data(new_alamat)
+    else:
+        print("Data Batal diubah")
+        
+        
+def update_data_pekerjaan(data):
+    print(f"pekerjaan yang lama : {data}")
+    new_pekerjaan= input("Masukan pekerjaan baru : ")
+    action = input("\nApakah yakin ingin mengganti data tersebut? (y/n): ")
+    if action == "y":
+        data_bansos[new_pekerjaan] = data_bansos[data]
+        del data_bansos[data]
+        print("Data Telah di simpan")
+        print_data(new_pekerjaan)
+    else:
+        print("Data Batal diubah")
+        
+        
+def update_data_gaji(data):
+    print(f"gaji yang lama : {data}")
+    new_gaji = input("Masukan gaji baru : ")
+    action = input("\nApakah yakin ingin mengganti data tersebut? (y/n): ")
+    if action == "y":
+        data_bansos[new_gaji] = data_bansos[data]
+        del data_bansos[data]
+        print("Data Telah di simpan")
+        print_data(new_gaji)
+    else:
+        print("Data Batal diubah")
+        
+        
+def update_data_keluarga(data):
+    print(f"jumlah anggota keluarga yang lama : {data}")
+    new_keluarga = input("Masukan jumlah anggota keluarga baru : ")
+    action = input("\nApakah yakin ingin mengganti data tersebut? (y/n): ")
+    if action == "y":
+        data_bansos[new_keluarga] = data_bansos[data]
+        del data_bansos[data]
+        print("Data Telah di simpan")
+        print_data(new_keluarga)
+    else:
+        print("Data Batal diubah")
+        
+def update_semuadata():
+    print ("MENGUPDATE DATA PENERIMA BANSOS")
+    nik = input("Masukkan NIK yang akan di-update : ")
+    exists = searching(nik)
+    if exists:
+        print_data()
+        print("EDIT DATA [1] Nama - [2] NIK - [3] Alamat - [4] Pekerjaan - [5] Gaji - [6] Jumlah ANggota Keluarga")
+        respon = input("MASUKAN PILIHAN (1/2/3/4/5/6) : ")
+        if respon == "1":
+            update_data_nama(data)
+        elif respon == "2":
+            update_data_nik(data)
+        elif respon == "3":
+            update_data_alamat(data)
+        elif respon =="4":
+            update_data_pekerjaan(data)
+        elif respon == "5":
+            update_data_gaji(data)
+        elif respon == "6":
+            update_data_keluarga(data)
+    else:
+        print("Data Tidak Ada")
+    input("Tekan ENTER untuk kembali ke MENU")
+        
+        
+
+def hubungi_kontak():
+    print ("Untuk info selengkapnya hubungi:")
+    print ("e-mail: kemensos@go.id")
+    print ("website: www.kemensos.go.id")
+    print ("hotline: 221-233-05")
+    
+
+
+def main():
+    while True:
+        system("cls")
+        print("""
+    Pendataan Penerima Bansos  
+___________________________________    
+
+   [1]. Tampilkan Data               
+   [2]. Tambah Data                  
+   [3]. Hapus Data berdasarkan NIK   
+   [4]. Cari Data berdasarkan NIK    
+   [5]. Edit Data                    
+   [6]. Hubungi Kontak               
+   [7]. Ekspor data ke CSV/PDF       
+   [8]. Keluar                       
+___________________________________
+        """)
+        user_input = input("Masukan Menu: ")
+        if user_input == "1":
+            tampil_data()
+        elif user_input == "2":
+            tambah_data()
+        elif user_input == "3":
+            hapus_data()
+        elif user_input == "4":
+            cari_data()
+        elif user_input == "5":
+            update_semuadata()
+        elif user_input == "6":
+            hubungi_kontak()
+        # elif user_input == "7":
+        #     ekspor_csv()
+        elif user_input == "8":
+            print("\nProgram Selesai sampai jumpa!")
+            break 
+        else:
+            print("\nMenu tidak tersedia")
+        input("\nTekan enter untuk melanjutkan...")
+
+if __name__ == "__main__":
+    main()
