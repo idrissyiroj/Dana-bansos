@@ -1,8 +1,15 @@
 from os import system
 
-data_bansos = {}
+data_bansos = {
+    "0312033320001" : {
+    "Nama Lengkap" : "Ali"
+    "Alamat" : "Kudus"
+    "Pekerjaan" : "Guru"
+    "Gaji" : "2000000"
+    "Anggota Keluarga" : "3"}
+}
 
-def tampil_data():
+def tampil_data(data=None):
     system("cls")
     if len(data_bansos) != 0:
         print("Daftar Data:")
@@ -51,8 +58,8 @@ def hapus_data():
     else:
         print("\nData tidak ada!!!")
         
-def searching(nik):
-    if nik in data_bansos:
+def searching(data):
+    if data in data_bansos:
         return True
     else:
         return False
@@ -63,7 +70,7 @@ def cari_data():
     exists = searching(nik)
     if exists:
         print("Data Ditemukan")
-        print (data_bansos=nik)
+        tampil_data(data=nik)
     else:
         print("Data Tidak Ada")
         input("Tekan ENTER untuk kembali ke MENU")
