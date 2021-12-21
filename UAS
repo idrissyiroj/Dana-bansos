@@ -46,7 +46,7 @@ def tampil_data(bansos=None, nama=True, alamat=True, pekerjaan=True, gaji=True, 
             alamat = data_bansos[every_data]["alamat"]
             pekerjaan = data_bansos[every_data]["pekerjaan"]
             gaji = data_bansos[every_data]["gaji"]
-            print(f"NAMA LENGKAP : {nama} - ALAMAT : {alamat} - PEKERJAAN : {pekerjaan} - GAJI : {gaji}")
+            print(f"\nNAMA LENGKAP : {nama} \nALAMAT : {alamat} \nPEKERJAAN : {pekerjaan} \nGAJI : {gaji}")
 
 def view_databansos():
     print_header("DATA PENERIMA BANSOS")
