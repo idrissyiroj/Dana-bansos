@@ -88,7 +88,7 @@ def cari_data():
     exists = searching(nik)
     if exists:
         print("Data Ditemukan")
-        print_data(bansos=nik)
+        tampil_data(bansos=nik)
     else:
         print("Data Tidak Ada")
     input("Tekan ENTER untuk kembali ke MENU")
@@ -118,7 +118,7 @@ def update_data_namalengkap(nama):
         data_bansos[nama_baru] = data_bansos[nama]
         del data_bansos[nama]
         print("Data Telah di simpan")
-        print_data(nama_baru)
+        tampil_data(nama_baru)
     else:
         print("Data Batal diubah")
 
@@ -132,7 +132,7 @@ def update_data_alamat(alamat):
         data_bansos[alamat_baru] = data_bansos[alamat]
         del data_bansos[alamat]
         print("Data Telah di simpan")
-        print_data(alamat_baru)
+        tampil_data(alamat_baru)
     else:
         print("Data Batal diubah")
 
@@ -145,7 +145,7 @@ def update_data_pekerjaan(pekerjaan):
         data_bansos[pekerjaan_baru] = data_bansos[pekerjaan]
         del data_bansos[pekerjaan]
         print("Data Telah di simpan")
-        print_data(pekerjaan_baru)
+        tampil_data(pekerjaan_baru)
     else:
         print("Data Batal diubah")
 
@@ -158,7 +158,7 @@ def update_data_gaji(gaji):
         data_bansos[gaji_baru] = data_bansos[gaji]
         del data_bansos[gaji]
         print("Data Telah di simpan")
-        print_data(gaji_baru)
+        tampil_data(gaji_baru)
     else:
         print("Data Batal diubah")
 
@@ -167,7 +167,7 @@ def update_semuadata():
     nik = input("nik yang akan di-update : ")
     exists = searching(nik)
     if exists:
-        print_data(nik)
+        tampil_data(nik)
         print("EDIT FIELD [1] NAMA LENGKAP - [2] ALAMAT - [3] PEKERJAAN - [4] GAJI")
         respon = input("MASUKAN PILIHAN (1/2/3/4) : ")
         if respon == "1":
@@ -193,9 +193,9 @@ def program_utama(char):
     elif char == "2":
         tambah_data()
     elif char == "3":
-        cari_data()
-    elif char == "4":
         hapus_data()
+    elif char == "4":
+        cari_data()
     elif char == "5":
         update_semuadata()
 
